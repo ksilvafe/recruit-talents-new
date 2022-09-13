@@ -10,26 +10,26 @@ export class UserService {
   constructor(
     @InjectRepository(User)
     private repository: Repository<User>,
-  ) {
-    async create(createUserDto: CreateUserDto): Promise<User> {
-      const user = this.repository.create(createUserDto);
-      return await this.repository.save(user);
-    }
+  ) {}
 
-    async findAll(): Promise<User[]> {
-      return await this.repository.find();
-    }
+  async create(createUserDto: CreateUserDto): Promise<User> {
+    const user = this.repository.create(createUserDto);
+    return await this.repository.save(user);
+  }
 
-    // async findOne(id: number): Promise<User> {
-    //   return await this.repository.findOne(id);
-    // }
+  async findAll(): Promise<User[]> {
+    return await this.repository.find();
+  }
 
-    update(id: number, updateUserDto: UpdateUserDto) {
-      return `This action updates a #${id} user`;
-    }
+  // async findOne(id: number): Promise<User> {
+  //   return await this.repository.findOne(id);
+  // }
 
-    remove(id: number) {
-      return `This action removes a #${id} user`;
-    }
+  update(id: number, updateUserDto: UpdateUserDto) {
+    return `This action updates a #${id} user`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} user`;
   }
 }
